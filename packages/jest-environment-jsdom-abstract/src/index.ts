@@ -56,7 +56,7 @@ export default abstract class BaseJSDOMEnvironment implements JestEnvironment<nu
       typeof virtualConsole.forwardTo === 'function'
     ) {
       // JSDOM 27+ uses `forwardTo`
-      virtualConsole.forwardTo(context.console);
+      virtualConsole.forwardTo(context.console, {jsdomErrors: 'none'});
     } else if (
       'sendTo' in virtualConsole &&
       typeof virtualConsole.sendTo === 'function'
